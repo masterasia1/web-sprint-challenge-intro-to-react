@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 
 function App() {
-const [userData,setUserData]=useState([])
+const [characterArray,setCharacterArray]=useState([])
 
 useEffect(()=>{
 axios.get('https://swapi.dev/api/people/')
@@ -30,14 +30,14 @@ hairColor:hairColor
 characterArray.push(characterData);
 i++;
 }
-setUserData(characterArray);
+setCharacterArray(characterArray);
 })
 
 .catch(err=>{
   console.log(err);
   })
   },[])
-  const users=userData.map((data,id)=>{
+  const users=characterArray.map((data,id)=>{
   return <div key={id}>
   <h2>{data.name} {data.hairColor}</h2>
   
